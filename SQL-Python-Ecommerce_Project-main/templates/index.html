@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Welcome</h2>
+    <p>Here are some sample products:</p>
+    <ul>
+        {% for p in products %}
+            <li>{{ p['product_id'] }} - {{ p['product_category'] }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

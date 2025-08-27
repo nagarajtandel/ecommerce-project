@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+}
+header {
+    background: #222;
+    color: white;
+    padding: 10px 20px;
+}
+header h1 {
+    margin: 0;
+}
+nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+main {
+    padding: 20px;
+}
+/* Table styling for all pages */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  text-transform: capitalize; /* make first letters uppercase */
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Optional: header, footer, body consistency */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #333;
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}

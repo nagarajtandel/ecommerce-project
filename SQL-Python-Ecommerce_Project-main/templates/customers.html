@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Top Customers</h2>
+    <table border="1">
+        {% if customers %}
+            <tr>
+                {% for col in customers[0].keys() %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for c in customers %}
+            <tr>
+                {% for v in c.values() %}
+                    <td>{{ v }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr><td colspan="5">No customer data</td></tr>
+        {% endif %}
+    </table>
+
+    <canvas id="customerChart" width="600" height="400"></canvas>
+    <script>
+        const customerLabels = {{ customers | map(attribute='customer_unique_id') | list | tojson | safe }};
+        const customerData = {{ customers | map(attribute='total_spent') | list | tojson | safe }};
+
+        new Chart(document.getElementById('customerChart'), {
+            type: 'bar',
+            data: {
+                labels: customerLabels,
+                datasets: [{
+                    label: 'Total Spent',
+                    data: customerData.map(Number),
+                    backgroundColor: 'rgba(75,192,192,0.7)'
+                }]
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Products</h2>
+    <form method="get">
+        <input type="text" name="search" value="{{ search }}" placeholder="Search products">
+        <button type="submit">Search</button>
+    </form>
+
+    <table border="1">
+        {% if products %}
+            <tr>
+                {% for col in products[0].keys() %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for p in products %}
+            <tr>
+                {% for v in p.values() %}
+                    <td>{{ v }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr><td colspan="5">No products found</td></tr>
+        {% endif %}
+    </table>
+{% endblock %}
